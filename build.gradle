@@ -1,0 +1,33 @@
+//javafx is a build system and can only run through gradle
+//REFRESH THE FUCKING ELEPHANT AFTER CHANGES
+
+plugins {
+    id 'java' //default
+    id 'application' //runs through gradle
+    id "org.openjfx.javafxplugin" version "0.0.10" //plugin id for javafx
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+javafx {
+    version = "17" //specifies version to be used
+    modules = ['javafx.controls', 'javafx.fxml'] //.controls always included, .fxml for gui
+}
+
+application {
+    mainClass.set("Main") //main class of this application is called Main
+}
